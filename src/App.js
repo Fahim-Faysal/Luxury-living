@@ -1,23 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './Pages/Home/Home/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AboutUs from './Pages/Shared/AboutUs/AboutUs';
+import Login from './Pages/Login/Login/Login';
+import AuthProvider from './Pages/Context/AuthProvider';
+import Register from './Pages/Login/Register/Register';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Booking from './Pages/Dashboard/Booking/Booking';
+import BookingList from './Pages/Dashboard/BookingList/BookingList';
+import Review from './Pages/Dashboard/Review/Review';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import AddService from './Pages/Dashboard/AddService/AddService';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import OrderList from './Pages/Dashboard/OrderList/OrderList';
+import InteriorDesign from './Pages/Dashboard/InteriorDesgin/InteriorDesign';
+import Payment from './Pages/Dashboard/Payment/Payment';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/*' element={<Home></Home>}></Route>
+            <Route path='/home' element={<Home></Home>}></Route>
+            <Route path='/about' element={<AboutUs></AboutUs>}></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Register />}></Route>
+            <Route path='/dashboard' element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
+              <Route path='booking' element={<Booking></Booking>}></Route>
+              <Route path='bookinglist' element={<BookingList />}></Route>
+              <Route path='addservice' element={<AddService />}></Route>
+              <Route path='makeadmin' element={<MakeAdmin />}></Route>
+              <Route path='orderlist' element={<OrderList />}></Route>
+              <Route path='review' element={<Review />}></Route>
+              <Route path='payment' element={<Payment />}></Route>
+              <Route path='interiordesign' element={<InteriorDesign />}></Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+
     </div>
   );
 }
