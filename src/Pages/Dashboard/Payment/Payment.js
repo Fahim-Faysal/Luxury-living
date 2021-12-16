@@ -1,9 +1,32 @@
-import React from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm';
+
+
+const stripePromise = loadStripe('pk_test_51JvmDrE6wOZ8kSGoMLwmvg25nmD9NaV1y8TKpztlUXCRA9uRyhDTLh6NZ2wqjhlzgC3DaLkIk2FvFPuOCjzLu3gy003DHu4yiI')
+
 
 const Payment = () => {
+      const { paymentId } = useParams()
+      const [payment, setPayment] = useState({})
+
+      useEffect(() => {
+            fetch(`http://localhost:4000/booking/${paymentId}`)
+                  .then(res => res.json())
+                  .then(data => setPayment(data))
+      }, [paymentId]);
+
       return (
             <div>
-                  <p>Payement comming soon</p>
+                  <h2>Please Pay For {payment?.name}</h2>
+                  <h1>$ {payment?.price}</h1>
+                  <Elements stripe={stripePromise}>
+                        <CheckoutForm
+                              payment={Payment}
+                        />
+                  </Elements>
             </div>
       );
 };

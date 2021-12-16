@@ -1,12 +1,8 @@
 import { Button, Grid, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import useAuth from '../../Hooks/useAuth';
 
 const Booking = () => {
-
-      const { user } = useAuth()
-
       const [values, setValues] = useState({})
 
 

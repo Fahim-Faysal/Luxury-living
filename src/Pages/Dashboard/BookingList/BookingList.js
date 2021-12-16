@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import { Clear } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 function createData(name, calories, fat, carbs, protein) {
       return { name, calories, fat, carbs, protein };
@@ -32,17 +33,14 @@ const BookingList = () => {
                   .then(data => setBookings(data))
       }, [])
 
-
-
-
       return (
             <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 450 }} aria-label="simple table">
                         <TableHead>
                               <TableRow>
                                     <TableCell>Name</TableCell>
-                                    <TableCell align="center">Email</TableCell>
                                     <TableCell align="right">Service Name</TableCell>
+                                    <TableCell align="right">Price</TableCell>
                                     <TableCell align="right">Payment</TableCell>
 
                               </TableRow>
@@ -54,12 +52,15 @@ const BookingList = () => {
                                           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                           <TableCell component="th" scope="row">
-                                                {booking.name}
+                                                {booking.displayName}
                                           </TableCell>
-                                          <TableCell align="center">{booking?.email}</TableCell>
-                                          <TableCell align="right">{booking?.service}</TableCell>
 
+                                          <TableCell align="right">{booking?.name}</TableCell>
                                           <TableCell align="right">{booking?.price}</TableCell>
+
+                                          <TableCell align="right">{booking?.payment ? 'Paid' :
+                                                <Link style={{ textDecoration: 'none' }} to={`/dashboard/payment/${booking._id}`}><Button>Pay</Button></Link>
+                                          }</TableCell>
 
                                           <Button> <Clear /></Button>
                                     </TableRow>
