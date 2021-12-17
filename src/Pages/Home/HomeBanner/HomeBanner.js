@@ -29,7 +29,7 @@ const HomeBanner = () => {
                               You can use griffin Residence to market your property
                         </Typography>
                         <br />
-                        <Button sx={{ background: '#00008b' }} variant="contained">Booking</Button>
+
                   </Grid>
                   <Grid item xs={12} md={8} lg={6}>
                         <img className={style} src={banner} alt="" />

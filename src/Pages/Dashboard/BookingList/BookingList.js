@@ -33,6 +33,25 @@ const BookingList = () => {
                   .then(data => setBookings(data))
       }, [])
 
+      const handelDelete = (id) => {
+            const proceed = window.confirm('Are you sure you want to delete?')
+            if (proceed) {
+                  fetch(`http://localhost:4000/booking/${id}`, {
+                        method: 'DELETE',
+
+                  })
+                        .then(res => res.json())
+                        .then(data => {
+                              if (data.deletedCount > 0) {
+                                    alert('Delete successfully')
+                                    const remaining = bookings.filter(order => order._id !== id)
+                                    setBookings(remaining)
+                              }
+                        })
+            }
+      }
+
+
       return (
             <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 450 }} aria-label="simple table">
@@ -62,7 +81,7 @@ const BookingList = () => {
                                                 <Link style={{ textDecoration: 'none' }} to={`/dashboard/payment/${booking._id}`}><Button>Pay</Button></Link>
                                           }</TableCell>
 
-                                          <Button> <Clear /></Button>
+                                          <Button onClick={() => handelDelete(booking?._id)}> <Clear /></Button>
                                     </TableRow>
                               ))}
                         </TableBody>

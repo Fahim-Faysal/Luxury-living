@@ -21,7 +21,7 @@ const drawerWidth = 240;
 
 
 const Dashboard = (props) => {
-      const { admin } = useAuth()
+      const { admin, logOut } = useAuth()
       const { window } = props;
       const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -34,7 +34,7 @@ const Dashboard = (props) => {
                   <Toolbar />
                   <Divider />
 
-                  <Link style={{ textDecoration: 'none' }} to='/dashboard/booking'><Button color="inherit"> <AddShoppingCart /> Book</Button></Link>
+
                   <br />
                   <Link style={{ textDecoration: 'none' }} to='/dashboard/bookinglist'><Button color="inherit"><ShoppingBagOutlinedIcon /> Booking List</Button>
                   </Link>
@@ -56,6 +56,9 @@ const Dashboard = (props) => {
                   <Link style={{ textDecoration: 'none' }} to='/dashboard/review'><Button color="inherit"><RateReviewOutlinedIcon />Review</Button></Link>
                   <br />
                   <Link style={{ textDecoration: 'none' }} to='/home'><Button color="inherit"><RateReviewOutlinedIcon />Home</Button></Link>
+                  <br />
+                  <Link style={{ textDecoration: 'none' }} to='/home'><Button sx={{ background: 'red', marginTop: '50px' }} onClick={logOut} variant='contained' >Logout</Button></Link>
+
 
             </div>
       );
