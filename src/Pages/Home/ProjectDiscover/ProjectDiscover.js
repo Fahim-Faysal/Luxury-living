@@ -8,7 +8,7 @@ const ProjectDiscover = () => {
       const [designs, setDesign] = useState([])
 
       useEffect(() => {
-            fetch('http://localhost:4000/design')
+            fetch('https://peaceful-citadel-92019.herokuapp.com/design')
                   .then(res => res.json())
                   .then(data => setDesign(data))
       }, [])

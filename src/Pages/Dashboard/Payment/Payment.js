@@ -13,7 +13,7 @@ const Payment = () => {
       const [payment, setPayment] = useState({})
 
       useEffect(() => {
-            fetch(`http://localhost:4000/booking/${paymentId}`)
+            fetch(`https://peaceful-citadel-92019.herokuapp.com/booking/${paymentId}`)
                   .then(res => res.json())
                   .then(data => setPayment(data))
       }, [paymentId]);

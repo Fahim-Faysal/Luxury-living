@@ -27,7 +27,7 @@ const OrderList = () => {
       const { user } = useAuth()
       const [orders, setOrders] = useState([])
       useEffect(() => {
-            fetch(`http://localhost:4000/todaysorder?email=${user?.email}`)
+            fetch(`https://peaceful-citadel-92019.herokuapp.com/todaysorder?email=${user?.email}`)
                   .then(res => res.json())
                   .then(data => setOrders(data))
       }, [])
@@ -35,7 +35,7 @@ const OrderList = () => {
       const handelDelete = (id) => {
             const proceed = window.confirm('Are you sure you want to delete?')
             if (proceed) {
-                  fetch(`http://localhost:4000/todaysorder/${id}`, {
+                  fetch(`https://peaceful-citadel-92019.herokuapp.com/todaysorder/${id}`, {
                         method: 'DELETE',
 
                   })

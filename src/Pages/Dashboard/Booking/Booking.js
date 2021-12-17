@@ -21,7 +21,7 @@ const Booking = () => {
             const result = { ...values }
             console.log(result);
 
-            fetch('http://localhost:4000/booking', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/booking', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

@@ -22,7 +22,7 @@ const HandelProject = () => {
             e.preventDefault()
             const result = { ...values }
 
-            fetch('http://localhost:4000/messeage', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/messeage', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

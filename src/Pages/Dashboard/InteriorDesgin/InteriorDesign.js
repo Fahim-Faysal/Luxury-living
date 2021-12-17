@@ -20,7 +20,7 @@ const InteriorDesign = () => {
             const result = { ...values }
             console.log(result);
 
-            fetch('http://localhost:4000/design', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/design', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

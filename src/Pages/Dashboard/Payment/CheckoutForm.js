@@ -15,7 +15,7 @@ const CheckoutForm = ({ payment }) => {
       const [processing, setProcessing] = useState(false)
 
       useEffect(() => {
-            fetch('http://localhost:4000/create-payment-intent', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/create-payment-intent', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'
@@ -86,7 +86,7 @@ const CheckoutForm = ({ payment }) => {
                         created: paymentIntent.created,
                         transaction: paymentIntent.client_secret.slice('_secret')[0]
                   }
-                  const url = `http://localhost:4000/booking/${_id}`
+                  const url = `https://peaceful-citadel-92019.herokuapp.com/booking/${_id}`
 
                   fetch(url, {
                         method: 'PUT',

@@ -24,7 +24,7 @@ const Review = () => {
       const hanelSubmit = (e) => {
             e.preventDefault()
 
-            axios.post('http://localhost:4000/review', {
+            axios.post('https://peaceful-citadel-92019.herokuapp.com/review', {
                   ...values
             })
                   .then(function (response) {

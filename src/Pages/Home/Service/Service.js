@@ -6,7 +6,7 @@ import ServiceShow from '../ServiceShow/ServiceShow'
 const Service = () => {
       const [services, setServices] = useState([])
       useEffect(() => {
-            fetch('http://localhost:4000/service')
+            fetch('https://peaceful-citadel-92019.herokuapp.com/service')
                   .then(res => res.json())
                   .then(data => setServices(data))
 

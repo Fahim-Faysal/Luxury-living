@@ -10,7 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { Button } from '@mui/material';
-import { Add, AddShoppingCart, AdminPanelSettings, DriveFolderUpload, List } from '@mui/icons-material';
+import { Add, AdminPanelSettings, DriveFolderUpload, List } from '@mui/icons-material';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import useAuth from '../../Hooks/useAuth';
@@ -34,11 +34,6 @@ const Dashboard = (props) => {
                   <Toolbar />
                   <Divider />
 
-
-                  <br />
-                  <Link style={{ textDecoration: 'none' }} to='/dashboard/bookinglist'><Button color="inherit"><ShoppingBagOutlinedIcon /> Booking List</Button>
-                  </Link>
-
                   {
                         admin &&
                         <Box>
@@ -50,14 +45,23 @@ const Dashboard = (props) => {
                               </Link>
                         </Box>
                   }
-                  <Link style={{ textDecoration: 'none' }} to='/dashboard/orderlist'><Button color="inherit"><List />Ordered design List</Button>
-                  </Link>
-                  <br />
-                  <Link style={{ textDecoration: 'none' }} to='/dashboard/review'><Button color="inherit"><RateReviewOutlinedIcon />Review</Button></Link>
-                  <br />
+                  {
+                        !admin &&
+                        <Box>
+                              <Link style={{ textDecoration: 'none' }} to='/dashboard/bookinglist'><Button color="inherit"><ShoppingBagOutlinedIcon /> Booking List</Button>
+                              </Link>
+                              <Link style={{ textDecoration: 'none' }} to='/dashboard/orderlist'><Button color="inherit"><List />Ordered design List</Button>
+                              </Link>
+                              <br />
+                              <Link style={{ textDecoration: 'none' }} to='/dashboard/review'><Button color="inherit"><RateReviewOutlinedIcon />Review</Button></Link>
+                              <br />
+
+                        </Box>
+                  }
                   <Link style={{ textDecoration: 'none' }} to='/home'><Button color="inherit"><RateReviewOutlinedIcon />Home</Button></Link>
                   <br />
-                  <Link style={{ textDecoration: 'none' }} to='/home'><Button sx={{ background: 'red', marginTop: '50px' }} onClick={logOut} variant='contained' >Logout</Button></Link>
+
+                  <Link style={{ textDecoration: 'none' }} to='/home'><Button sx={{ backgroundColor: 'red', color: 'white', marginTop: '50px' }} onClick={logOut} variant='contained' >Logout</Button></Link>
 
 
             </div>

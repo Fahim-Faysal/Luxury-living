@@ -88,14 +88,14 @@ const useFirebase = () => {
       }, [])
 
       useEffect(() => {
-            fetch(`http://localhost:4000/users/${user?.email}`)
+            fetch(`https://peaceful-citadel-92019.herokuapp.com/users/${user?.email}`)
                   .then(res => res.json())
                   .then(data => setAdmin(data.admin))
       }, [user.email])
 
       const saveUser = (email, displayName, method) => {
             const user = { email, displayName }
-            fetch('http://localhost:4000/user', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/user', {
                   method: method,
                   headers: {
                         'content-type': 'application/json'

@@ -21,7 +21,7 @@ const AddService = () => {
             const result = { ...values }
             console.log(result);
 
-            fetch('http://localhost:4000/addservice', {
+            fetch('https://peaceful-citadel-92019.herokuapp.com/addservice', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'

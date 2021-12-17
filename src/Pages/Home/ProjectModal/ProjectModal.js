@@ -24,13 +24,13 @@ const ProjectModal = ({ open, handleClose, design }) => {
       const { img, description, price, name } = design;
       const { user } = useAuth()
 
-      const [values, setValues] = useState({})
+      const [values, setValues] = useState({ email: user?.email, name, price })
       const [success, setSucess] = useState(false)
 
       const handelSubmit = e => {
             e.preventDefault()
-            console.log(values);
-            fetch('http://localhost:4000/todaysorder', {
+
+            fetch('https://peaceful-citadel-92019.herokuapp.com/todaysorder', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json'
@@ -86,7 +86,7 @@ const ProjectModal = ({ open, handleClose, design }) => {
                                                 <Typography variant='h3'>Fill up the form for this design</Typography>
                                                 <br />
 
-                                                <TextField onBlur={handelBlur} sx={{ width: '100%', margin: '10px' }} value={user?.email} name='email' type='email' label="Service Title" required />
+                                                <TextField onBlur={handelBlur} sx={{ width: '100%', margin: '10px' }} value={user?.email} name='email' type='email' label="User Email" required />
                                                 <br />
 
                                                 <TextField onBlur={handelBlur} sx={{ width: '100%', margin: '10px' }} value={name} name='name' type='text' label="Service Title" required />
