@@ -1,13 +1,26 @@
-import { Alert, AlertTitle, Button, Grid, TextField, Typography } from '@mui/material';
+import { Button, Grid, TextField, Typography, useTheme } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const HandelProject = () => {
 
       const [values, setValues] = useState({})
-      // const [aleart, setAleart] = useState(false)
 
+      const theme = useTheme()
 
+      const useStyles = makeStyles({
+            button: {
+                  [theme.breakpoints.down('md')]: {
+                        alignItems: 'center',
+                        width: '100%'
+                  },
+                  [theme.breakpoints.up('md')]: {
+                        width: '50%', margin: 'auto'
+                  },
+            },
+      });
+      const { button } = useStyles()
 
       const handelOnBlur = (e) => {
             e.preventDefault()
@@ -32,7 +45,6 @@ const HandelProject = () => {
                   .then(res => res.json())
                   .then(data => {
                         if (data.insertedId) {
-                              // setAleart(true)
                               Swal.fire({
                                     icon: 'success',
                                     title: 'Thanks',
@@ -51,7 +63,7 @@ const HandelProject = () => {
                         Let us handel your <br /> project, personally
                   </Typography>
 
-                  <form onSubmit={formSubmit} style={{ width: '50%', margin: 'auto' }} >
+                  <form onSubmit={formSubmit} className={button} >
                         <Grid container spacing={2}>
                               <Grid item xs={12} lg={6}>
                                     <TextField onBlur={handelOnBlur} style={{ width: '75%' }} name='fullName' label="Full Name" variant="filled" required />
@@ -86,12 +98,7 @@ const HandelProject = () => {
                         <Button type='submit' style={{ width: '25%', margin: 'auto', backgroundColor: '#00008b', padding: '15' }}
                               variant="contained">Send Messeage</Button>
                   </form>
-                  {/* {
-                        aleart && <Alert sx={{ width: '25%', margin: 'auto', padding: '30px', marginTop: '20px' }} severity="success">
-                              <AlertTitle>Success</AlertTitle>
-                              We Received Your Messeage— <strong></strong>
-                        </Alert>
-                  } */}
+
             </div>
       );
 };

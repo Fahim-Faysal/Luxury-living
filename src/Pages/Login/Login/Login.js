@@ -82,7 +82,7 @@ const Login = () => {
                         isloading && <CircularProgress />
                   }
                   <div style={{ marginTop: '50px' }}>
-                        {/* <Link style={{ textDecoration: 'none', alignItems: 'start', marginTop: '10px' }} to='/home'>Back To Home</Link> */}
+
                         <div>
                               <h1>Please Login Here</h1>
                               {
