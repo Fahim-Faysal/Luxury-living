@@ -16,8 +16,6 @@ const Testimonials = () => {
             <Container sx={{ marginTop: '15px' }}>
                   <Typography variant='h3'>Reviews</Typography>
                   <Grid container spacing={2} style={{ marginTop: '30px' }}>
-                        <i class="far fa-star"></i>
-
                         {
                               reviews.map(review =>
                                     <Grid xs={12} sm={6} md={4} lg={3}>

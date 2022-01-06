@@ -22,7 +22,7 @@ import useAuth from '../../Hooks/useAuth';
 
 
 const Navigation = () => {
-      const { user, logOut } = useAuth()
+      const { user, emailSignIn, logOut } = useAuth()
       const theme = useTheme()
       const useStyles = makeStyles({
             navStyle: {
@@ -70,11 +70,19 @@ const Navigation = () => {
                                     <Link style={{ textDecoration: 'none' }} to='/dashboard'><Button>Dashboard</Button></Link>
                               </ListItemText>
                         </ListItem>
-                        <ListItem button>
-                              <ListItemText>
-                                    <Button style={{ backgroundColor: 'red', color: 'white' }} onClick={logOut}>Logout</Button>
-                              </ListItemText>
-                        </ListItem>
+                        {user?.email ?
+                              <ListItem button>
+                                    <ListItemText>
+                                          <Button style={{ backgroundColor: 'red', color: 'white' }} onClick={logOut}>Logout</Button>
+                                    </ListItemText>
+                              </ListItem> :
+                              <ListItem button>
+                                    <ListItemText>
+                                          <Link style={{ textDecoration: 'none' }} to='/login'>
+                                                <Button style={{ backgroundColor: 'red', color: 'white' }} onClick={emailSignIn}>Login</Button>
+                                          </Link>
+                                    </ListItemText>
+                              </ListItem>}
                   </List>
                   <Divider />
 

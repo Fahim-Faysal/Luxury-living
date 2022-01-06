@@ -33,35 +33,37 @@ const Dashboard = (props) => {
             <div>
                   <Toolbar />
                   <Divider />
+                  <div style={{ backgroundColor: '#F5FFFA', height: '100vh' }}>
 
-                  {
-                        admin &&
-                        <Box>
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/makeadmin'><Button color="inherit"><AdminPanelSettings /> Make Admin</Button>
-                              </Link>
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/addservice'><Button color="inherit"><Add /> Add Service</Button>
-                              </Link>
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/interiordesign'><Button color="inherit"><DriveFolderUpload />Add Todays Desgin</Button>
-                              </Link>
-                        </Box>
-                  }
-                  {
-                        !admin &&
-                        <Box>
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/bookinglist'><Button color="inherit"><ShoppingBagOutlinedIcon /> Booking List</Button>
-                              </Link>
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/orderlist'><Button color="inherit"><List />Ordered design List</Button>
-                              </Link>
-                              <br />
-                              <Link style={{ textDecoration: 'none' }} to='/dashboard/review'><Button color="inherit"><RateReviewOutlinedIcon />Review</Button></Link>
-                              <br />
+                        {
+                              admin &&
+                              <Box>
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/makeadmin'><Button color="inherit"><AdminPanelSettings /> Make Admin</Button>
+                                    </Link>
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/addservice'><Button color="inherit"><Add /> Add Service</Button>
+                                    </Link>
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/interiordesign'><Button color="inherit"><DriveFolderUpload />Add Todays Desgin</Button>
+                                    </Link>
+                              </Box>
+                        }
+                        {
+                              !admin &&
+                              <Box>
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/bookinglist'><Button color="inherit"><ShoppingBagOutlinedIcon /> Booking List</Button>
+                                    </Link>
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/orderlist'><Button color="inherit"><List />Ordered design List</Button>
+                                    </Link>
+                                    <br />
+                                    <Link style={{ textDecoration: 'none' }} to='/dashboard/review'><Button color="inherit"><RateReviewOutlinedIcon />Review</Button></Link>
+                                    <br />
 
-                        </Box>
-                  }
-                  <Link style={{ textDecoration: 'none' }} to='/home'><Button color="inherit"><RateReviewOutlinedIcon />Home</Button></Link>
-                  <br />
+                              </Box>
+                        }
+                        <Link style={{ textDecoration: 'none' }} to='/home'><Button color="inherit"><RateReviewOutlinedIcon />Home</Button></Link>
+                        <br />
 
-                  <Link style={{ textDecoration: 'none' }} to='/home'><Button sx={{ backgroundColor: 'red', color: 'white', marginTop: '50px' }} onClick={logOut} variant='contained' >Logout</Button></Link>
+                        <Link style={{ textDecoration: 'none' }} to='/home'><Button sx={{ backgroundColor: 'red', color: 'white', marginTop: '50px' }} onClick={logOut} variant='contained' >Logout</Button></Link>
+                  </div>
 
 
             </div>
